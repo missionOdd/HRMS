@@ -1,0 +1,42 @@
+spring:
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
+      location: ${web.upload-path}
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/,file:${web.upload-path}
+  jackson:
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect  #用innoDB引擎,才能生成外键,默认为myisam引擎
+  jooq:
+    sql-dialect: com.mission.hrms.commmon.config.MySQL5DialectUTF8
+  freemarker:
+    request-context-attribute: req  #req访问request
+    suffix: .ftl  #后缀名
+    content-type: text/html
+    enabled: true
+    cache: false #缓存配置
+    template-loader-path: classpath:/templates/ #模板加载路径 按需配置
+    charset: UTF-8 #编码格式
+    settings:
+      number_format: '0.##'   #数字格式化，无小数点
+
+  # ===============日志配置======================
+  data:
+    rest:
+      base-path: /api
+logging:
+  config: classpath:logback.xml

@@ -7,7 +7,6 @@ package com.mission.hrms.common.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.File;
@@ -17,7 +16,6 @@ import java.io.File;
  */
 @Slf4j
 @Configuration
-@ConfigurationProperties(prefix = "web")
 public class PathUtil {
 
   @Value("${web.upload-path}")

@@ -2,7 +2,11 @@ package com.mission.hrms.controller;
 
 import com.mission.hrms.entity.User;
 import com.mission.hrms.service.UserService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -12,7 +16,7 @@ import javax.annotation.Resource;
  * @author makejava
  * @since 2019-01-11 13:01:22
  */
-@RestController
+@Controller
 @RequestMapping("user")
 public class UserController {
     /**
@@ -27,9 +31,17 @@ public class UserController {
      * @param id 主键
      * @return 单条数据
      */
+    @ResponseBody
     @GetMapping("selectOne")
     public User selectOne(Long id) {
         return this.userService.queryById(id);
+    }
+
+
+    @PostMapping("login")
+    public String login(String uName, String upassword) {
+
+        return "redirect:/page/archlist";
     }
 
 }

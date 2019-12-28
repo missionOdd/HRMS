@@ -30,8 +30,4 @@ public class Role {
   @JoinTable(name = "tb_role_privileges",joinColumns = @JoinColumn(name = "r_id"),inverseJoinColumns = @JoinColumn(name = "pr_id"))
   private Set<Privilege> privileges;//权限
 
-
-
-
-
 }

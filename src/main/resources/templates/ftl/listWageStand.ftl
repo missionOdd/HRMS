@@ -49,10 +49,6 @@
 
 <script type="text/javascript">
     $(function () {
-        $.ajax({
-            url: "/wageStandard/bind",
-            type: "GET"
-        });
         showArchs();
     });
 

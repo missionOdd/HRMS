@@ -1,5 +1,6 @@
 package com.mission.hrms.controller;
 
+
 import com.mission.hrms.common.exception.MyException;
 import com.mission.hrms.common.vo.ResultVO;
 import com.mission.hrms.entity.Wage;
